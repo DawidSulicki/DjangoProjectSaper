@@ -16,5 +16,8 @@ def login_user(request):
             return redirect('login_user')
     else:
         return render(request,'login.html',{})
+def logout_user(request):
+    logout(request)
+    return redirect('home')
 def registration(request):
     return render(request,'registration.html',{})
