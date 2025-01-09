@@ -1,0 +1,33 @@
+
+  h1 {
+    color: #333;
+  }
+  
+  #game {
+    display: grid;
+    margin: 20px auto;
+    gap: 2px;
+    width: fit-content;
+  }
+  
+  .cell {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .cell.revealed {
+    background-color: #eee;
+    cursor: default;
+  }
+  
+  .cell.mine {
+    background-color: red;
+    color: white;
+  }
+  
