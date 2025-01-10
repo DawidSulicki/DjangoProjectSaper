@@ -13,7 +13,11 @@
 <body>
     <h1>W jaką gre chciałbyś zagrać?</h1>
     <section class="GameList">
+        {% if user.is_autenthicated %}
         <a href="{% url 'saper' %}"><img src="{% static 'minesweeperIcon.png' %}" alt="Minesweeper"></a>
+        {% else %}
+        <a href="{% url 'login_user'%}"><img src="{% static 'minesweeperIcon.png' %}" alt="Minesweeper"></a>
+        {% endif %}
     </section>
 </body>
 </html>

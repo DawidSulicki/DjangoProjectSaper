@@ -19,5 +19,19 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('home')
+
 def registration(request):
-    return render(request,'registration.html',{})
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request,user)
+            return redirect('home')
+        else:
+            return render(request, 'registration.html', {'form': form})
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration.html', {'form': form})
